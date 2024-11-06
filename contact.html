@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Future-Harvest - Contact Page</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&family=Lexend:wght@100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <nav class="navbar">
+        <div class="navigation-container">
+            <a href="index.html" id="navbarlogo">Future Harvest</a>
+            <div class="navbar-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+    
+            <ul class="menu-items">
+                <li class="navbar-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+    
+                <li class="navbar-item">
+                    <a href="mission-vision.html" class="nav-link">Mission & Vision</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="Projects.html" class="nav-link">Our Projects</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="contact-information">
+        <div class="form-container">
+            <h1>Contact Us</h1>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="mobile">Mobile:</label>
+                <input type="text" id="mobile" name="mobile" required>
+                
+                <label for="query">Query:</label>
+                <textarea id="query" name="query" required></textarea>
+                
+                <button type="submit" id="send-button">Send</button>
+            </form>
+            <div id="success-message" class="hidden">Message Sent!</div>
+        </div>
+
+        <div class="contact-details">
+            <h2>Location & Contact</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7187.351197936205!2d28.233021315990307!3d-25.748239359063415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e95600c742e61e1%3A0x9075d2c9b4ee7098!2sHatfield%2C%20Pretoria%2C%200028!5e0!3m2!1sen!2sza!4v1730921743039!5m2!1sen!2sza" width="600" height="450" style="border: 5px solid #C6E7FF;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:futureHarvestGroupllc@gmail.com">futureHarvestGroupllc@gmail.com</a></p>
+                <p>Contact: +27 687 695 6769</p>
+                <p>Address: Hatfield, Pretoria, 0028</p>
+            </div>
+        </div>
+    </div>
+    
+       <script src="app.js"></script>
+</body>
+</html>
