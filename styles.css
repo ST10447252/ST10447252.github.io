@@ -1,16 +1,21 @@
 /* Global Styles */
 @import "compass/css3";
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+    font-size: 16px;
+}
+
+/* Navbar */
 .navbar {
     background-color: #071512;
-    height: 80px;
+    height: 5vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,26 +28,24 @@
 .navigation-container {
     display: flex;
     justify-content: space-between;
-    height: 80px;
+    height: 5vh;
     z-index: 1;
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
     padding: 0 50px;
-
 }
 
 #navbarlogo {
-    font-size: 20px;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     font-family: monospace;
     display: flex;
     align-items: center;
     cursor: pointer;
     text-decoration: none;
-    
 }
 
-.menu-items{
+.menu-items {
     display: flex;
     align-items: center;
     list-style: none;
@@ -50,10 +53,10 @@
 }
 
 .navbar-item {
-    height: 80px;
+    height: 100%;
 }
 
-.nav-link{
+.nav-link {
     color: #41504D;
     display: flex;
     align-items: center;
@@ -61,97 +64,44 @@
     text-decoration: none;
     padding: 0 1rem;
     height: 100%;
+    transition: color 0.3s ease;
 }
 
 .nav-link:hover {
     color: white;
-    transition: all 0.9s ease;
 }
 
 @media screen and (max-width: 960px) {
-    .navigation-container{
-        display: flex;
-        justify-content: space-between;
-        height: 80px;
-        z-index: 1;
-        width: 100%;
-        max-width: 1300px;
-        padding: 0;
-    }
-
-    .menu-items{ 
+    .menu-items {
         display: grid;
-        grid-template-columns: auto;
-        margin: 0;
-        width: 100%;
+        grid-template-columns: 1fr;
         position: absolute;
         top: -1000px;
         opacity: 0;
         transition: all 0.5s ease;
         height: 50vh;
-        z-index: -1;
+        width: 100%;
         background-color: #071512;
+        z-index: -1;
     }
 
     .menu-items.active {
-        background-color: #071512;
         top: 100%;
         opacity: 1;
-        transition: all 0.9s ease;
+        transition: all 0.3s ease;
         z-index: 99;
-        height: 50vh;
-        font-size: 1.6rem;
     }
 
-    #navbarlogo{
-        padding-left: 25px;
-    }
-
-    .navbar-toggle .bar{
+    .navbar-toggle .bar {
+        display: block;
+        cursor: pointer;
         width: 25px;
         height: 3px;
         margin: 5px auto;
-        transition: all 0.3s ease-in-out;
         background-color: white;
     }
-
-    .menu-items{
-        width: 100%;
-    }
-
-    .nav-link{
-        text-align: center;
-        padding: 2rem;
-        width: 100%;
-        display: table;
-    }
-
-    #mobile-menu{
-        position: absolute;
-        top: 20%;
-        right: 5%;
-        transform: translate(5%, 20%);
-    }
-
-    .navbar-toggle .bar{
-        display: block;
-        cursor: pointer;
-    }
-
-    #mobile-menu.is-active .bar:nth-child(2){
-        opacity: 0;
-    }
-    #mobile-menu.is-active .bar:nth-child(1){
-        transform: translateY(8px) rotate(45deg);
-    }
-    #mobile-menu.is-active .bar:nth-child(3){
-        transform: translateY(-8px) rotate(-45deg);
-    }
-
-
 }
 
-/* --------------------------------------------------------------Index.html----------------------------------------------------------------------------------- */
 /* Main Section */
 .main-section {
     display: flex;
@@ -164,69 +114,33 @@
     overflow: hidden;
 }
 
-/* Image Background */
-.main-image-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
 .main-image-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(40%); /* Darkens the image */
+    filter: brightness(40%);
 }
 
-/* Text Styles */
 .main-container h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    margin: 0;
+    font-size: clamp(2rem, 5vw, 4rem);
 }
 
 .main-container p {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     max-width: 800px;
     margin: 1rem auto;
-    line-height: 1.6;
-
 }
 
 /* Projects Section */
-.projects-highlight {
-    text-align: center;
-    margin-top: 2rem;
-    color: #071512;
-
-}
-
-.projects-highlight h1  {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #071512 ;
-}
-
-.projects-highlight p {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+.projects-highlight h1, .projects-highlight p {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
     color: #071512;
 }
 
-.projects-highlight a {
-    padding: 40px;
-    margin: 30px;
-}
-
-
-/* Project Images Row */
 .projects {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    flex-wrap: wrap;
     gap: 1rem;
     padding: 1rem;
 }
@@ -243,42 +157,35 @@
     transform: scale(1.05);
 }
 
+@media (max-width: 768px) {
+    .projects img {
+        width: 100%;
+    }
+}
 
 /* Footer Styling */
 .footer {
     background-color: #071512;
     color: white;
     text-align: center;
-    padding: 3rem 1rem;
-    margin-top: 3rem;
-    font-family: 'Lexend', sans-serif;
-}
-
-.footer p {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-.social-links {
-    margin-bottom: 1.5rem;
+    padding: 2rem;
 }
 
 .footer-link {
-    color: #C6E7FF; /* Light color for links */
+    color: #C6E7FF;
     text-decoration: none;
     margin: 0 1rem;
-    font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-    color: #006A67; /* Hover effect color */
+    color: #006A67;
 }
 
 /* Newsletter Section Styling */
 .newsletter-section {
     margin-top: 2rem;
-    background-color: rgba(255, 255, 255, 0.1); /* Slight contrast background */
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 2rem;
     border-radius: 8px;
     max-width: 400px;
@@ -286,335 +193,85 @@
     margin-right: auto;
 }
 
-.newsletter-section h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: white;
+#newsletter-form input, #newsletter-form button {
+    width: 100%;
 }
 
-#newsletter-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#newsletter-form input {
-    padding: 0.8rem;
-    margin-bottom: 1rem;
-    width: 80%;
-    border: 1px solid #006A67;
-    border-radius: 5px;
-    font-size: 1rem;
-    outline: none;
-}
-
-#newsletter-form input:focus {
-    border-color: #C6E7FF; /* Focus color */
-}
-
-#newsletter-form button {
-    padding: 0.8rem;
-    background-color: #006A67;
-    color: white;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#newsletter-form button:hover {
-    background-color: #1A1A1D;
-}
-
-/* Media Query for Mobile Screens */
-@media (max-width: 768px) {
-    .footer {
-        padding: 2rem 1rem;
-    }
-
-    .footer-link {
-        font-size: 1rem;
-        margin: 0 0.5rem;
-    }
-
-    .newsletter-section {
-        padding: 1.5rem;
-        width: 90%;
-    }
-
-    #newsletter-form input {
-        width: 100%;
-    }
-
-    #newsletter-form button {
-        width: 100%;
-    }
-}
-
-
-/* ---------------------------------------------------------------About.html-------------------------------------------------------------------------------------------- */
-/* About Section Styling */
+/* About Section */
 .about-section {
-    position: relative; /* Needed for positioning the overlay */
-    background-image: url('/Assets/Images/aero-farm1.jpg'); /* Set the background image */
-    background-size: cover; /* Make the background image cover the whole section */
-    background-position: center center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    background-attachment: fixed; /* Make the background image stay fixed when scrolling */
-    background-color: #071512; /* Fallback color for sections without the image */
-    color: #ffffff; /* White text color for contrast */
-    padding: 4rem; /* Add padding around the content */
-    text-align: center; /* Center the text */
-    font-family: 'Lexend', sans-serif; /* Choose the font family */
-    margin: 0;
+    background: url('/Assets/Images/aero-farm1.jpg') center/cover fixed no-repeat #071512;
+    color: #ffffff;
+    padding: 4rem;
+    text-align: center;
 }
-
-.about-section::before {
-    content: ''; /* Create the overlay */
-    position: absolute; /* Position it over the background */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
-    z-index: 0; /* Ensure it stays behind the content */
-}
-
-.about-section h1,
-.about-section p,
-.about-section hr {
-    position: relative; /* Ensure text appears above the overlay */
-    z-index: 1; /* Text should appear above the overlay */
-}
-
 
 .about-section h1 {
-    font-size: 3rem; /* Larger text for the title */
-    font-weight: 700; /* Make the title bold */
-    margin-bottom: 5rem; /* Space below the title */
-    text-transform: uppercase; /* Uppercase letters for the title */
+    font-size: clamp(2rem, 5vw, 3rem);
 }
 
 .about-section p {
-    font-size: 1.2rem; /* Larger font size for the paragraph */
-    line-height: 1.8; /* Add line height for better readability */
-    font-weight: 400; /* Normal weight for the paragraph */
-    margin-bottom: 2rem; /* Add space below paragraphs */
-    text-align: justify; /* Justify the paragraph text for a clean look */
+    font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
-.about-section hr {
-    border: 1px solid #ffffff; /* White border for the horizontal line */
-    margin: 2rem auto; /* Space above and below the line */
-    width: 80%; /* Make the line less wide for better presentation */
-}
-
-/* Optional styling for responsive design */
 @media (max-width: 768px) {
-    .about-section h1 {
-        font-size: 2rem; /* Slightly smaller title for mobile */
-    }
-
-    .about-section p {
-        font-size: 1rem; /* Adjust font size for paragraphs */
-    }
-
     .about-section {
-        padding: 3rem 1rem; /* Adjust padding for smaller screens */
+        padding: 2rem;
     }
 }
 
-/* ----------------------------------------------------------------Contact.html----------------------------------------------------------------------------------------- */
-/* Contact Information Section */
-.contact-information {
-    padding: 2rem;
-    background-color: #C6E7FF;
-}
-
-/* Form Styling */
-.form-container {
-    background-color: #1A1A1D;
-    color: #FFFFFF;
-    padding: 3rem;
-    margin-bottom: 2rem;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-h1 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-}
-
-label {
-    font-size: 1.1rem;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-input, textarea, button {
-    width: 100%;
-    padding: 1rem;
-    margin: 0.5rem 0;
-    border: 2px solid #006A67;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #006A67;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #004F4F;
-}
-
-textarea {
-    height: 100px;
-}
-
-#success-message {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-top: 2rem;
-    color: #28a745;
-    display: none;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Contact Details */
-.contact-details {
-    text-align: center;
-}
-
-iframe {
-    border: 5px solid #C6E7FF;
-    border-radius: 10px;
-    margin-top: 2rem;
-}
-
-.contact-info p {
-    font-size: 1.2rem;
-    margin-top: 1rem;
-}
-
-.contact-info a {
-    color: #006A67;
-    text-decoration: none;
-}
-
-.contact-info a:hover {
-    text-decoration: underline;
-}
-
-/* ------------------------------------------------------------------Mission & Vision---------------------------------------------------------------------------------------------------- */
 /* Mission & Vision Section */
 .mission-vision-section {
-    position: relative;
-    padding: 0;
-    overflow: hidden;
-}
-
-/* Main Background */
-.main-background {
-    position: relative;
-    background-image: url('/Assets/Images/Setting-agri.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    height: 100vh; /* Full viewport height */
-    opacity: 0.7; /* Reduce opacity to make text stand out */
+    background: url('/Assets/Images/Setting-agri.jpg') center/cover fixed no-repeat;
+    opacity: 0.7;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.content-container {
     text-align: center;
+    height: 100vh;
     color: white;
-    padding: 3rem;
-    max-width: 800px;
 }
 
-h1, p {
-    font-weight: bold;
+.content-container h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
 
-h1 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-p {
-    font-size: 1.2rem;
-    line-height: 1.6;
+.content-container p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
 /* Core Values Section */
 .core-values {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
-    margin-top: -3rem; /* Pull up core values section */
+    margin-top: -3rem;
 }
 
 .core-value {
-    position: relative;
+    background-attachment: fixed;
     background-size: cover;
     background-position: center;
+    width: 100%;
+    max-width: 250px;
     height: 200px;
-    width: 23%;
     border-radius: 10px;
     margin: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0.8; /* Reduced opacity for readability */
+    opacity: 0.8;
     color: white;
     text-align: center;
-    padding: 1rem;
 }
 
-.core-value h3 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-.core-value p {
-    font-size: 1.1rem;
-}
-
-/* Parallax effect */
-.core-value {
-    background-attachment: fixed;
-}
-
-/* Ensure mobile responsiveness */
 @media (max-width: 768px) {
-    .core-values {
-        flex-direction: column;
-        align-items: center;
-    }
-
     .core-value {
         width: 80%;
         height: 250px;
     }
 }
 
-/* -------------------------------------------------------------------Projects.html------------------------------------------------------------------------------------------- */
-
-/* General Styling for the Projects Section */
+/* Projects Detail Section */
 .projects-section-detail {
     display: flex;
     flex-direction: column;
@@ -622,63 +279,24 @@ p {
     margin-top: 2rem;
 }
 
-/* Styling for Each Project */
 .project {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* Full screen height for each project section */
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    transition: transform 0.5s ease; /* Smooth transition for the focused effect */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    margin: 0 0;
+    height: 100vh;
+    cursor: pointer;
+    transition: transform 0.5s ease;
 }
 
-/* Content inside each project */
-.project-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background for readability */
-    padding: 2rem;
-    border-radius: 8px;
-    max-width: 80%;
-}
-
-/* Title Styling */
 .project-content h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
 }
 
-/* Description Styling */
 .project-content p {
-    font-size: 1.2rem;
-    line-height: 1.6;
+    font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
-/* Style for focused (active) project */
-.projects-section-detail .project.focused {
-    transform: scale(1.05); /* Slightly zooms in the active project */
-}
-
-/* Media Query for Smaller Screens */
 @media (max-width: 768px) {
-    .project-content {
-        max-width: 90%;
-    }
-
     .project-content h2 {
         font-size: 2rem;
     }
-
-    .project-content p {
-        font-size: 1rem;
-    }
 }
-
